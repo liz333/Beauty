@@ -39,17 +39,16 @@ class ProductViewController: UIViewController {
     @IBAction func produceDateEdit(_ sender: UITextField) {
         let produceDatePickerView = UIDatePicker()
         produceDatePickerView.datePickerMode = UIDatePickerMode.date
+        produceDatePickerView.locale = Locale(identifier: "zh_CN")
         sender.inputView = produceDatePickerView
         produceDatePickerView.addTarget(self, action: #selector(produceDateChanged), for: UIControlEvents.valueChanged)
     }
     
    @objc func produceDateChanged (sender: UIDatePicker){
         let produceDateFormatter = DateFormatter()
-        produceDateFormatter.dateStyle = .full
-        produceDateFormatter.timeStyle = .none
+        produceDateFormatter.dateFormat = "yyyy年MM月dd日"
         produceDateText.text = produceDateFormatter.string(from: sender.date)
     }
-    
     
     @objc func dismissPicker() {
         produceDateText.endEditing(true)
