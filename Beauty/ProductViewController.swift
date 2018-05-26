@@ -9,7 +9,7 @@
 import UIKit
 
 class ProductViewController: UIViewController {
-
+    
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var nameText: UITextField!
@@ -20,6 +20,7 @@ class ProductViewController: UIViewController {
     @IBOutlet var effectText: UITextField!
     @IBOutlet var openDateText: UITextField!
     @IBOutlet var expireDateText: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,31 @@ class ProductViewController: UIViewController {
     @IBAction func doneTapped(_ sender: Any) {
     }
     
+    @IBAction func produceDateEdit(_ sender: UITextField) {
+        let produceDatePickerView = UIDatePicker()
+        produceDatePickerView.datePickerMode = UIDatePickerMode.date
+        sender.inputView = produceDatePickerView
+        produceDatePickerView.addTarget(self, action: #selector(produceDateChanged), for: UIControlEvents.valueChanged)
+    }
     
-
+   @objc func produceDateChanged (sender: UIDatePicker){
+        let produceDateFormatter = DateFormatter()
+        produceDateFormatter.dateStyle = .full
+        produceDateFormatter.timeStyle = .none
+        produceDateText.text = produceDateFormatter.string(from: sender.date)
+    }
+    
+    
+    @objc func dismissPicker() {
+        produceDateText.endEditing(true)
+    }
+    
+    @IBAction func openDateEdit(_ sender: UITextField) {
+    }
+    
+    
+    @IBAction func expireDateEdit(_ sender: UITextField) {
+    }
+    
+    
 }
