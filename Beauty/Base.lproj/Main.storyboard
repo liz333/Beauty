@@ -125,8 +125,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="dateChanged:" destination="5Dn-dt-zPe" eventType="valueChanged" id="TuJ-tG-sWD"/>
                                     <action selector="textBeginEdit:" destination="5Dn-dt-zPe" eventType="editingDidBegin" id="Qch-Yb-Nf6"/>
+                                    <action selector="textFinishEdit:" destination="5Dn-dt-zPe" eventType="editingDidEnd" id="OPg-ZM-TqK"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择日期" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yri-no-GtJ">
@@ -138,8 +138,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="dateChanged:" destination="5Dn-dt-zPe" eventType="valueChanged" id="fpt-Yu-TG2"/>
                                     <action selector="textBeginEdit:" destination="5Dn-dt-zPe" eventType="editingDidBegin" id="i3v-HO-Qda"/>
+                                    <action selector="textFinishEdit:" destination="5Dn-dt-zPe" eventType="editingDidEnd" id="HVq-LM-LxL"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择日期" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="A58-An-azB">
@@ -151,8 +151,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="dateChanged:" destination="5Dn-dt-zPe" eventType="valueChanged" id="0JO-gM-9rK"/>
                                     <action selector="textBeginEdit:" destination="5Dn-dt-zPe" eventType="editingDidBegin" id="Srm-iZ-4a4"/>
+                                    <action selector="textFinishEdit:" destination="5Dn-dt-zPe" eventType="editingDidEnd" id="Yw9-hN-uvX"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择类型" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g59-Qb-GdX">

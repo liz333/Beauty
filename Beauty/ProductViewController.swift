@@ -24,7 +24,11 @@ class ProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy年MM月dd日"
+        produceDateText.text = dateFormatter.string(from: Date())
+        openDateText.text = dateFormatter.string(from: Date())
+        expireDateText.text = dateFormatter.string(from: Date())
     }
     
     
@@ -44,7 +48,7 @@ class ProductViewController: UIViewController {
         datePickerView.datePickerMode = UIDatePickerMode.date
         datePickerView.locale = Locale(identifier: "zh_CN")
         datePickerView.date = Date()
-        datePickerView.addTarget(self, action: #selector(dateChanged), for: UIControlEvents.valueChanged)
+        datePickerView.addTarget(self, action: #selector(textFinishEdit(_:)), for: UIControlEvents.valueChanged)
         
         //Add a button to date picker view
         let navigationBar = UINavigationBar()
@@ -57,26 +61,27 @@ class ProductViewController: UIViewController {
         navigationItem.setRightBarButtonItems([doneButton], animated: false)
     }
     
-    @IBAction func dateChanged(_ sender: UIDatePicker) {
+   
+    
+   @objc func dismissDatePicker() {
+        produceDateText.endEditing(true)
+        openDateText.endEditing(true)
+        expireDateText.endEditing(true)
+    }
+    
+    
+    @IBAction func textFinishEdit(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy年MM月dd日"
         if sender == produceDateText.inputView {
-        produceDateText.text = dateFormatter.string(from: sender.date)
+            produceDateText.text = dateFormatter.string(from: sender.date)
         }
         if sender == openDateText.inputView {
             openDateText.text = dateFormatter.string(from: sender.date)
         }
         if sender == expireDateText.inputView {
-        expireDateText.text = dateFormatter.string(from: sender.date)
+            expireDateText.text = dateFormatter.string(from: sender.date)
         }
     }
-    
-   @objc func dismissDatePicker() {
-        produceDateText.resignFirstResponder()
-        openDateText.resignFirstResponder()
-        expireDateText.resignFirstResponder()
-    }
-    
-    
     
 }
