@@ -125,6 +125,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="dateChanged:" destination="5Dn-dt-zPe" eventType="valueChanged" id="TuJ-tG-sWD"/>
                                     <action selector="textBeginEdit:" destination="5Dn-dt-zPe" eventType="editingDidBegin" id="Qch-Yb-Nf6"/>
                                 </connections>
                             </textField>
@@ -137,6 +138,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="dateChanged:" destination="5Dn-dt-zPe" eventType="valueChanged" id="fpt-Yu-TG2"/>
                                     <action selector="textBeginEdit:" destination="5Dn-dt-zPe" eventType="editingDidBegin" id="i3v-HO-Qda"/>
                                 </connections>
                             </textField>
@@ -149,6 +151,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="dateChanged:" destination="5Dn-dt-zPe" eventType="valueChanged" id="0JO-gM-9rK"/>
                                     <action selector="textBeginEdit:" destination="5Dn-dt-zPe" eventType="editingDidBegin" id="Srm-iZ-4a4"/>
                                 </connections>
                             </textField>

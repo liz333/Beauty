@@ -24,7 +24,7 @@ class ProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
     }
     
     
@@ -43,6 +43,7 @@ class ProductViewController: UIViewController {
         sender.inputView = datePickerView
         datePickerView.datePickerMode = UIDatePickerMode.date
         datePickerView.locale = Locale(identifier: "zh_CN")
+        datePickerView.date = Date()
         datePickerView.addTarget(self, action: #selector(dateChanged), for: UIControlEvents.valueChanged)
         
         //Add a button to date picker view
@@ -52,19 +53,28 @@ class ProductViewController: UIViewController {
         navigationBar.sizeToFit()
         let navigationItem = UINavigationItem()
         navigationBar.setItems([navigationItem], animated: false)
-        let doneButton = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.plain, target: self, action: #selector(dismissPicker))
+        let doneButton = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.plain, target: self, action:#selector(dismissDatePicker))
         navigationItem.setRightBarButtonItems([doneButton], animated: false)
     }
     
-    
-    @objc func dateChanged (sender: UIDatePicker){
+    @IBAction func dateChanged(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy年MM月dd日"
+        if sender == produceDateText.inputView {
         produceDateText.text = dateFormatter.string(from: sender.date)
+        }
+        if sender == openDateText.inputView {
+            openDateText.text = dateFormatter.string(from: sender.date)
+        }
+        if sender == expireDateText.inputView {
+        expireDateText.text = dateFormatter.string(from: sender.date)
+        }
     }
     
-    @objc func dismissPicker() {
-        produceDateText.endEditing(true)
+   @objc func dismissDatePicker() {
+        produceDateText.resignFirstResponder()
+        openDateText.resignFirstResponder()
+        expireDateText.resignFirstResponder()
     }
     
     
