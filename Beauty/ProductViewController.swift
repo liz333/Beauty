@@ -24,7 +24,7 @@ class ProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     
@@ -36,30 +36,37 @@ class ProductViewController: UIViewController {
     @IBAction func doneTapped(_ sender: Any) {
     }
     
-    @IBAction func produceDateEdit(_ sender: UITextField) {
-        let produceDatePickerView = UIDatePicker()
-        produceDatePickerView.datePickerMode = UIDatePickerMode.date
-        produceDatePickerView.locale = Locale(identifier: "zh_CN")
-        sender.inputView = produceDatePickerView
-        produceDatePickerView.addTarget(self, action: #selector(produceDateChanged), for: UIControlEvents.valueChanged)
+    
+    @IBAction func textBeginEdit(_ sender: UITextField) {
+        //Pop-up date picker window
+        let datePickerView = UIDatePicker()
+        sender.inputView = datePickerView
+        datePickerView.datePickerMode = UIDatePickerMode.date
+        datePickerView.locale = Locale(identifier: "zh_CN")
+        datePickerView.addTarget(self, action: #selector(dateChanged), for: UIControlEvents.valueChanged)
+        
+        //Add a button to date picker view
+        let navigationBar = UINavigationBar()
+        sender.inputAccessoryView = navigationBar
+        navigationBar.barStyle = UIBarStyle.default
+        navigationBar.sizeToFit()
+        let navigationItem = UINavigationItem()
+        navigationBar.setItems([navigationItem], animated: false)
+        let doneButton = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.plain, target: self, action: #selector(dismissPicker))
+        navigationItem.setRightBarButtonItems([doneButton], animated: false)
     }
     
-   @objc func produceDateChanged (sender: UIDatePicker){
-        let produceDateFormatter = DateFormatter()
-        produceDateFormatter.dateFormat = "yyyy年MM月dd日"
-        produceDateText.text = produceDateFormatter.string(from: sender.date)
+    
+    @objc func dateChanged (sender: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy年MM月dd日"
+        produceDateText.text = dateFormatter.string(from: sender.date)
     }
     
     @objc func dismissPicker() {
         produceDateText.endEditing(true)
     }
     
-    @IBAction func openDateEdit(_ sender: UITextField) {
-    }
-    
-    
-    @IBAction func expireDateEdit(_ sender: UITextField) {
-    }
     
     
 }
