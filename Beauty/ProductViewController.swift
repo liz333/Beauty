@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ProductViewController: UIViewController {
+class ProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+    @IBOutlet var imageButton: UIButton!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var nameText: UITextField!
     @IBOutlet var brandText: UITextField!
@@ -21,9 +21,14 @@ class ProductViewController: UIViewController {
     @IBOutlet var openDateText: UITextField!
     @IBOutlet var expireDateText: UITextField!
     
+    var imagePicker = UIImagePickerController()
+    var product : Product?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy年MM月dd日"
         produceDateText.text = dateFormatter.string(from: Date())
@@ -31,15 +36,17 @@ class ProductViewController: UIViewController {
         expireDateText.text = dateFormatter.string(from: Date())
     }
     
-    
-    
-    @IBAction func cameraTapped(_ sender: Any) {
+    @IBAction func imageButtonTapped(_ sender: Any) {
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+        imageButton.isHidden = true
     }
     
-    
-    @IBAction func doneTapped(_ sender: Any) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let productImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imageView.image = productImage
+        imagePicker.dismiss(animated: true, completion: nil)
     }
-    
     
     @IBAction func textBeginEdit(_ sender: UITextField) {
         //Pop-up date picker window
@@ -61,9 +68,8 @@ class ProductViewController: UIViewController {
         navigationItem.setRightBarButtonItems([doneButton], animated: false)
     }
     
-   
     
-   @objc func dismissDatePicker() {
+    @objc func dismissDatePicker() {
         produceDateText.endEditing(true)
         openDateText.endEditing(true)
         expireDateText.endEditing(true)
@@ -83,5 +89,31 @@ class ProductViewController: UIViewController {
             expireDateText.text = dateFormatter.string(from: sender.date)
         }
     }
+    
+    
+    @IBAction func brandTextEdit(_ sender: UITextField) {
+        performSegue(withIdentifier: "brandSegue", sender: brandText)
+    }
+    
+    
+    @IBAction func categoryTextEdit(_ sender: UITextField) {
+        performSegue(withIdentifier: "categorySegue", sender: categoryText)
+    }
+    
+    
+    
+    
+    @IBAction func doneTapped(_ sender: Any) {
+        product?.name = nameText.text
+        product?.image = UIImagePNGRepresentation(imageView.image!)
+        product?.producedate = produceDateText.text
+        product?.opendate = openDateText.text
+        product?.expiredate = expireDateText.text
+        
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        navigationController?.popViewController(animated: true)
+    }
+    
     
 }

@@ -17,6 +17,7 @@
 		6399234120B7C73000169733 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6399234020B7C73000169733 /* SecondViewController.swift */; };
 		6399234320B7C74900169733 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6399234220B7C74900169733 /* ThirdViewController.swift */; };
 		63BED72420B8CCB90009DFDF /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BED72320B8CCB90009DFDF /* ProductViewController.swift */; };
+		63C052CE20BB53FA006291A5 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C052CD20BB53FA006291A5 /* camera.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		6399234020B7C73000169733 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		6399234220B7C74900169733 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		63BED72320B8CCB90009DFDF /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		63C052CD20BB53FA006291A5 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				6399233E20B7C71A00169733 /* FirstViewController.swift */,
 				6399234020B7C73000169733 /* SecondViewController.swift */,
 				6399234220B7C74900169733 /* ThirdViewController.swift */,
+				63C052CD20BB53FA006291A5 /* camera.png */,
 				6399233120B7BC6E00169733 /* Assets.xcassets */,
 				6399233320B7BC6E00169733 /* LaunchScreen.storyboard */,
 				6399233620B7BC6E00169733 /* Info.plist */,
@@ -139,6 +142,7 @@
 			files = (
 				6399233520B7BC6E00169733 /* LaunchScreen.storyboard in Resources */,
 				6399233220B7BC6E00169733 /* Assets.xcassets in Resources */,
+				63C052CE20BB53FA006291A5 /* camera.png in Resources */,
 				6399232D20B7BC6D00169733 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
