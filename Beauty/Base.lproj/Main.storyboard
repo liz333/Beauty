@@ -32,14 +32,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入名称" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G7U-Wn-P3N">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入名称" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G7U-Wn-P3N">
                                 <rect key="frame" x="150" y="103" width="225" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="L9g-HL-V5l"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="dismissKeyboard:" destination="5Dn-dt-zPe" eventType="editingDidEndOnExit" id="ire-P9-0ax"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87q-IQ-ZeW">
                                 <rect key="frame" x="160" y="148" width="62" height="24"/>
@@ -47,7 +50,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择品牌" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CYU-pn-cVW">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择品牌" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CYU-pn-cVW">
                                 <rect key="frame" x="150" y="177" width="225" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="fam-gG-EgU"/>
@@ -113,7 +116,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择日期" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="90J-aT-aKc">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="90J-aT-aKc">
                                 <rect key="frame" x="150" y="312" width="225" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="0MQ-kt-PIU"/>
@@ -126,7 +129,7 @@
                                     <action selector="textFinishEdit:" destination="5Dn-dt-zPe" eventType="editingDidEnd" id="OPg-ZM-TqK"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择日期" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yri-no-GtJ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yri-no-GtJ">
                                 <rect key="frame" x="150" y="423" width="225" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="UO0-jB-1p6"/>
@@ -139,7 +142,7 @@
                                     <action selector="textFinishEdit:" destination="5Dn-dt-zPe" eventType="editingDidEnd" id="HVq-LM-LxL"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择日期" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="A58-An-azB">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择日期" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A58-An-azB">
                                 <rect key="frame" x="150" y="477" width="225" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="76b-PS-XBb"/>
@@ -152,7 +155,7 @@
                                     <action selector="textFinishEdit:" destination="5Dn-dt-zPe" eventType="editingDidEnd" id="Yw9-hN-uvX"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择类型" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g59-Qb-GdX">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请选择类型" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g59-Qb-GdX">
                                 <rect key="frame" x="150" y="251" width="225" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="lvC-4y-5Yc"/>
@@ -177,6 +180,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oF-Em-PA5">
+                                <rect key="frame" x="165" y="548" width="45" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="更改"/>
+                                <connections>
+                                    <action selector="changeTapped:" destination="5Dn-dt-zPe" eventType="touchUpInside" id="hnf-RU-VHo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -200,6 +211,7 @@
                             <constraint firstItem="PbX-Lc-1xj" firstAttribute="trailing" secondItem="oth-pT-fcq" secondAttribute="trailing" constant="60" id="Gvx-ma-fx6"/>
                             <constraint firstItem="f03-LM-IIp" firstAttribute="leading" secondItem="PbX-Lc-1xj" secondAttribute="leading" constant="10" id="Hzf-cG-gsH"/>
                             <constraint firstItem="sTD-dr-iHh" firstAttribute="top" secondItem="PbX-Lc-1xj" secondAttribute="top" id="K8C-W4-Jqh"/>
+                            <constraint firstItem="PbX-Lc-1xj" firstAttribute="bottom" secondItem="7oF-Em-PA5" secondAttribute="bottom" constant="80" id="Nr0-CP-cWr"/>
                             <constraint firstItem="0Z5-LM-iz4" firstAttribute="leading" secondItem="87q-IQ-ZeW" secondAttribute="leading" id="ODN-D9-C2v"/>
                             <constraint firstItem="GSJ-tP-Dd4" firstAttribute="bottom" secondItem="g59-Qb-GdX" secondAttribute="bottom" id="OJ4-XH-PaC"/>
                             <constraint firstItem="90J-aT-aKc" firstAttribute="leading" secondItem="g59-Qb-GdX" secondAttribute="leading" id="PN1-YD-DjV"/>
@@ -226,6 +238,7 @@
                             <constraint firstItem="Pgv-43-RLZ" firstAttribute="centerY" secondItem="90J-aT-aKc" secondAttribute="centerY" id="sfw-ow-2Wy"/>
                             <constraint firstItem="f03-LM-IIp" firstAttribute="centerY" secondItem="A58-An-azB" secondAttribute="centerY" id="sva-Se-YuQ"/>
                             <constraint firstItem="yri-no-GtJ" firstAttribute="trailing" secondItem="PbX-Lc-1xj" secondAttribute="trailing" id="syY-aK-NuD"/>
+                            <constraint firstItem="7oF-Em-PA5" firstAttribute="centerX" secondItem="7An-IB-Dup" secondAttribute="centerX" id="ukG-i3-Zz8"/>
                             <constraint firstItem="Z90-ea-oyU" firstAttribute="centerY" secondItem="dXM-JS-UU8" secondAttribute="centerY" id="vzu-Gl-jdn"/>
                             <constraint firstItem="EuE-62-qb8" firstAttribute="leading" secondItem="PbX-Lc-1xj" secondAttribute="leading" constant="10" id="wak-Ir-j41"/>
                             <constraint firstItem="Pgv-43-RLZ" firstAttribute="leading" secondItem="PbX-Lc-1xj" secondAttribute="leading" constant="10" id="zai-94-xak"/>
@@ -243,6 +256,8 @@
                     <connections>
                         <outlet property="brandText" destination="CYU-pn-cVW" id="cQC-Px-ShB"/>
                         <outlet property="categoryText" destination="g59-Qb-GdX" id="DSE-Zc-CTU"/>
+                        <outlet property="changeButton" destination="7oF-Em-PA5" id="Mm0-gr-f2k"/>
+                        <outlet property="doneButton" destination="lSp-zp-yKa" id="U31-09-nTX"/>
                         <outlet property="effectText" destination="oth-pT-fcq" id="Iu1-ou-hqz"/>
                         <outlet property="expireDateText" destination="A58-An-azB" id="Rih-dC-5uB"/>
                         <outlet property="imageButton" destination="GSJ-tP-Dd4" id="Ro4-Ha-TKL"/>
@@ -630,7 +645,7 @@
                                 <items>
                                     <barButtonItem title="+添加" id="6ql-nB-vFo">
                                         <connections>
-                                            <segue destination="5Dn-dt-zPe" kind="show" id="TxB-17-1fd"/>
+                                            <segue destination="5Dn-dt-zPe" kind="show" identifier="productSegue1" id="TxB-17-1fd"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

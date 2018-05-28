@@ -69,6 +69,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return "删除"
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let product = products[indexPath.row]
+        performSegue(withIdentifier:"productSegue1", sender: product)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextVC = segue.destination as! ProductViewController
         nextVC.product = sender as? Product

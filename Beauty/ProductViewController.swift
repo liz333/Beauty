@@ -20,7 +20,8 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var effectText: UITextField!
     @IBOutlet var openDateText: UITextField!
     @IBOutlet var expireDateText: UITextField!
-    
+    @IBOutlet var changeButton: UIButton!
+    @IBOutlet var doneButton: UIBarButtonItem!
     
     var imagePicker = UIImagePickerController()
     var product : Product?
@@ -31,10 +32,42 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         imagePicker.delegate = self
         
-        dateFormatter.dateFormat = "yyyy年MM月dd日"
-        produceDateText.text = dateFormatter.string(from: Date())
-        openDateText.text = dateFormatter.string(from: Date())
-        expireDateText.text = dateFormatter.string(from: Date())
+        if product != nil {
+            doneButton.isEnabled = false
+            
+            imageView.image = UIImage(data: product!.image!)
+            imageButton.isHidden = true
+            
+            nameText.text = product!.name
+            nameText.isEnabled = false
+            
+            brandText.text = product!.brand
+            brandText.isEnabled = false
+            
+            categoryText.text = product!.category
+            categoryText.isEnabled = false
+            
+            produceDateText.text = product!.producedate
+            produceDateText.isEnabled = false
+            
+            openDateText.text = product!.opendate
+            openDateText.isEnabled = false
+            
+            expireDateText.text = product!.expiredate
+            expireDateText.isEnabled = false
+            
+            effectText.text = String(product!.effectperiod)
+            effectText.isEnabled = false
+            
+            openSwitch.isOn = product!.open
+            openSwitch.isEnabled = false
+        } else {
+            changeButton.isHidden = true
+            dateFormatter.dateFormat = "yyyy年MM月dd日"
+            produceDateText.text = dateFormatter.string(from: Date())
+            openDateText.text = dateFormatter.string(from: Date())
+            expireDateText.text = dateFormatter.string(from: Date())
+        }
     }
     
     @IBAction func imageButtonTapped(_ sender: Any) {
@@ -55,6 +88,12 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.dismiss(animated: true, completion: nil)
         imageButton.isHidden = false
     }
+    
+    
+    @IBAction func dismissKeyboard(_ sender: UITextField) {
+        self.nameText.endEditing(true)
+    }
+    
     
     @IBAction func textBeginEdit(_ sender: UITextField) {
         //Pop-up date picker window
@@ -119,20 +158,52 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    
+    @IBAction func changeTapped(_ sender: Any) {
+        imageButton.isHidden = true
+        nameText.isEnabled = true
+        brandText.isEnabled = true
+        categoryText.isEnabled = true
+        produceDateText.isEnabled = true
+        openDateText.isEnabled = true
+        expireDateText.isEnabled = true
+        effectText.isEnabled = true
+        openSwitch.isEnabled = true
+        doneButton.isEnabled = true
+    }
+    
+    
+    
     @IBAction func doneTapped(_ sender: Any) {
-        let product = Product(context: context)
-        product.name = nameText.text
-        product.brand = brandText.text
-        product.category = categoryText.text
-        product.producedate = produceDateText.text
-        product.opendate = openDateText.text
-        product.expiredate = expireDateText.text
-        product.image = UIImageJPEGRepresentation(imageView.image!, 0.0)
-        product.effectperiod = Int16(effectText.text!)!
-        product.open = openSwitch.isOn
-        do {
-            try context.save()
-        } catch { print("Save Error")}
-        navigationController?.popViewController(animated: true)
+        if product != nil {
+            product!.name = nameText.text
+            product!.brand = brandText.text
+            product!.category = categoryText.text
+            product!.producedate = produceDateText.text
+            product!.opendate = openDateText.text
+            product!.expiredate = expireDateText.text
+            product!.image = UIImageJPEGRepresentation(imageView.image!, 0.0)
+            product!.effectperiod = Int16(effectText.text!)!
+            product!.open = openSwitch.isOn
+            do {
+                try context.save()
+            } catch { print("Save Error")}
+            self.viewDidLoad()
+        } else {
+            let product = Product(context: context)
+            product.name = nameText.text
+            product.brand = brandText.text
+            product.category = categoryText.text
+            product.producedate = produceDateText.text
+            product.opendate = openDateText.text
+            product.expiredate = expireDateText.text
+            product.image = UIImageJPEGRepresentation(imageView.image!, 0.0)
+            product.effectperiod = Int16(effectText.text!)!
+            product.open = openSwitch.isOn
+            do {
+                try context.save()
+            } catch { print("Save Error")}
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
