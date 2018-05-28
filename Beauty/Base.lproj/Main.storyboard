@@ -82,6 +82,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eE0-dy-qZm">
                                 <rect key="frame" x="101" y="371" width="51" height="31"/>
+                                <connections>
+                                    <action selector="openSwitchChanged:" destination="5Dn-dt-zPe" eventType="valueChanged" id="0fk-6R-6aa"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z90-ea-oyU">
                                 <rect key="frame" x="180" y="374" width="82" height="24"/>

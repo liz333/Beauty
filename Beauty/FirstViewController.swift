@@ -10,7 +10,8 @@ import UIKit
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+    var products : [Product] = []
+    
     @IBOutlet var firstTV: UITableView!
     
     override func viewDidLoad() {

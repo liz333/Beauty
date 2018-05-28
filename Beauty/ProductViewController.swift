@@ -21,15 +21,16 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var openDateText: UITextField!
     @IBOutlet var expireDateText: UITextField!
     
+    
     var imagePicker = UIImagePickerController()
     var product : Product?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         
-        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy年MM月dd日"
         produceDateText.text = dateFormatter.string(from: Date())
         openDateText.text = dateFormatter.string(from: Date())
@@ -42,10 +43,16 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
         imageButton.isHidden = true
     }
     
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let productImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.image = productImage
         imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        imagePicker.dismiss(animated: true, completion: nil)
+        imageButton.isHidden = false
     }
     
     @IBAction func textBeginEdit(_ sender: UITextField) {
@@ -77,7 +84,6 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func textFinishEdit(_ sender: UIDatePicker) {
-        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy年MM月dd日"
         if sender == produceDateText.inputView {
             produceDateText.text = dateFormatter.string(from: sender.date)
@@ -101,19 +107,31 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     
-    
+    @IBAction func openSwitchChanged(_ sender: UISwitch) {
+        if openSwitch.isOn != true {
+            openDateText.text = " "
+            openDateText.isEnabled = false
+        } else {
+            openDateText.isEnabled = true
+            dateFormatter.dateFormat = "yyyy年MM月dd日"
+            openDateText.text = dateFormatter.string(from: Date())
+        }
+    }
     
     @IBAction func doneTapped(_ sender: Any) {
-        product?.name = nameText.text
         product?.image = UIImagePNGRepresentation(imageView.image!)
+        product?.name = nameText.text
+        product?.brand = brandText.text
+        product?.category = categoryText.text
         product?.producedate = produceDateText.text
         product?.opendate = openDateText.text
         product?.expiredate = expireDateText.text
-        
-        
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        //need test:
+        product?.effectperiod = Int16(effectText.text!)!
+        product?.open = openSwitch.isOn
+        do {
+            try context.save()
+        } catch { print("Save Error")}
         navigationController?.popViewController(animated: true)
     }
-    
-    
 }
