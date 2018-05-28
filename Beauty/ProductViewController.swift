@@ -39,6 +39,7 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func imageButtonTapped(_ sender: Any) {
         imagePicker.sourceType = .camera
+        imagePicker.cameraFlashMode = .auto
         present(imagePicker, animated: true, completion: nil)
         imageButton.isHidden = true
     }
@@ -119,16 +120,16 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func doneTapped(_ sender: Any) {
-        product?.image = UIImagePNGRepresentation(imageView.image!)
-        product?.name = nameText.text
-        product?.brand = brandText.text
-        product?.category = categoryText.text
-        product?.producedate = produceDateText.text
-        product?.opendate = openDateText.text
-        product?.expiredate = expireDateText.text
-        //need test:
-        product?.effectperiod = Int16(effectText.text!)!
-        product?.open = openSwitch.isOn
+        let product = Product(context: context)
+        product.name = nameText.text
+        product.brand = brandText.text
+        product.category = categoryText.text
+        product.producedate = produceDateText.text
+        product.opendate = openDateText.text
+        product.expiredate = expireDateText.text
+        product.image = UIImageJPEGRepresentation(imageView.image!, 0.0)
+        product.effectperiod = Int16(effectText.text!)!
+        product.open = openSwitch.isOn
         do {
             try context.save()
         } catch { print("Save Error")}
