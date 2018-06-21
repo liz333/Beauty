@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
-        <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="effectperiod" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="99" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="expiredate" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" minValueString="0" maxValueString="6" syncable="YES"/>
-        <attribute name="open" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="opendate" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="producedate" optional="YES" attributeType="String" syncable="YES"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Product1" representedClassName="Product1" syncable="YES" codeGenerationType="class">
+        <attribute name="brand1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="effectperiod1" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="99" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="expiredate1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image1" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="name1" optional="YES" attributeType="String" minValueString="0" maxValueString="6" syncable="YES"/>
+        <attribute name="open1" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="opendate1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="producedate1" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Product2" representedClassName="Product2" syncable="YES" codeGenerationType="class">
+        <attribute name="brand2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="effectperiod2" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="expiredate2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image2" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="open2" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="opendate2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="producedate2" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Product3" representedClassName="Product3" syncable="YES" codeGenerationType="class">
+        <attribute name="brand3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="effectperiod3" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="expiredate3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image3" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="open3" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="opendate3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="producedate3" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Product" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="Product1" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Product2" positionX="-54" positionY="54" width="128" height="180"/>
+        <element name="Product3" positionX="-36" positionY="108" width="128" height="180"/>
     </elements>
 </model>

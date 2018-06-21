@@ -8,28 +8,88 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
-
-    override func viewDidLoad() {
+class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+{
+   
+    @IBOutlet var thirdTV: UITableView!
+   
+    var products : [Product3] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        thirdTV.delegate = self
+        thirdTV.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool)
+    {
+        do {
+            products = try context.fetch(Product3.fetchRequest())
+            thirdTV.reloadData()
+        } catch
+        {
+            print("Cannot fetch data!")
+        }
     }
-    */
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return products.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell : CustomCell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomCell
+        let product = products[indexPath.row]
+        
+        cell.nameLabel!.text = product.name3
+        cell.cellImage!.image = UIImage(data: product.image3!)
+        cell.expireDateLabel!.text = product.expiredate3
+        if product.open3 == true
+        {
+            cell.openLabel!.text = "已开封"
+        } else
+        {
+            cell.openLabel!.text = "未开封"
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
+            let product = products[indexPath.row]
+            context.delete(product)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+            do
+            {
+                products = try context.fetch(Product3.fetchRequest())
+                thirdTV.reloadData()
+            } catch
+            {
+                print("Cannot fetch data!")
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String?
+    {
+        return "删除"
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let product = products[indexPath.row]
+        performSegue(withIdentifier:"productSegue3", sender: product)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let nextVC = segue.destination as! Product3ViewController
+        nextVC.product = sender as? Product3
+    }
+    
 }

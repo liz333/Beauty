@@ -1,14 +1,14 @@
 //
-//  ProductViewController.swift
+//  Product2ViewController.swift
 //  Beauty
 //
-//  Created by Lizzy on 2018/5/25.
+//  Created by Lizzy on 2018/6/21.
 //  Copyright © 2018年 L&L. All rights reserved.
 //
 
 import UIKit
 
-class ProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class Product2ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var imageButton: UIButton!
     @IBOutlet var imageView: UIImageView!
@@ -24,7 +24,7 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var doneButton: UIBarButtonItem!
     
     var imagePicker = UIImagePickerController()
-    var product : Product?
+    var product : Product2?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let dateFormatter = DateFormatter()
     
@@ -35,31 +35,31 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
         if product != nil {
             doneButton.isEnabled = false
             
-            imageView.image = UIImage(data: product!.image!)
+            imageView.image = UIImage(data: product!.image2!)
             imageButton.isHidden = true
             
-            nameText.text = product!.name
+            nameText.text = product!.name2
             nameText.isEnabled = false
             
-            brandText.text = product!.brand
+            brandText.text = product!.brand2
             brandText.isEnabled = false
             
-            categoryText.text = product!.category
+            categoryText.text = product!.category2
             categoryText.isEnabled = false
             
-            produceDateText.text = product!.producedate
+            produceDateText.text = product!.producedate2
             produceDateText.isEnabled = false
             
-            openDateText.text = product!.opendate
+            openDateText.text = product!.opendate2
             openDateText.isEnabled = false
             
-            expireDateText.text = product!.expiredate
+            expireDateText.text = product!.expiredate2
             expireDateText.isEnabled = false
             
-            effectText.text = String(product!.effectperiod)
+            effectText.text = String(product!.effectperiod2)
             effectText.isEnabled = false
             
-            openSwitch.isOn = product!.open
+            openSwitch.isOn = product!.open2
             openSwitch.isEnabled = false
         } else {
             changeButton.isHidden = true
@@ -175,31 +175,32 @@ class ProductViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func doneTapped(_ sender: Any) {
+        
         if product != nil {
-            product!.name = nameText.text
-            product!.brand = brandText.text
-            product!.category = categoryText.text
-            product!.producedate = produceDateText.text
-            product!.opendate = openDateText.text
-            product!.expiredate = expireDateText.text
-            product!.image = UIImageJPEGRepresentation(imageView.image!, 0.0)
-            product!.effectperiod = Int16(effectText.text!)!
-            product!.open = openSwitch.isOn
+            product!.name2 = nameText.text
+            product!.brand2 = brandText.text
+            product!.category2 = categoryText.text
+            product!.producedate2 = produceDateText.text
+            product!.opendate2 = openDateText.text
+            product!.expiredate2 = expireDateText.text
+            product!.image2 = UIImageJPEGRepresentation(imageView.image!, 0.0)
+            product!.effectperiod2 = Int16(effectText.text!)!
+            product!.open2 = openSwitch.isOn
             do {
                 try context.save()
             } catch { print("Save Error")}
             self.viewDidLoad()
         } else {
-            let product = Product(context: context)
-            product.name = nameText.text
-            product.brand = brandText.text
-            product.category = categoryText.text
-            product.producedate = produceDateText.text
-            product.opendate = openDateText.text
-            product.expiredate = expireDateText.text
-            product.image = UIImageJPEGRepresentation(imageView.image!, 0.0)
-            product.effectperiod = Int16(effectText.text!)!
-            product.open = openSwitch.isOn
+            let product = Product2(context: context)
+            product.name2 = nameText.text
+            product.brand2 = brandText.text
+            product.category2 = categoryText.text
+            product.producedate2 = produceDateText.text
+            product.opendate2 = openDateText.text
+            product.expiredate2 = expireDateText.text
+            product.image2 = UIImageJPEGRepresentation(imageView.image!, 0.0)
+            product.effectperiod2 = Int16(effectText.text!)!
+            product.open2 = openSwitch.isOn
             do {
                 try context.save()
             } catch { print("Save Error")}

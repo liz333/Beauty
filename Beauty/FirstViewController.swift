@@ -8,75 +8,88 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+{
     @IBOutlet var firstTV: UITableView!
     
-    var products : [Product] = []
+    var products : [Product1] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         firstTV.delegate = self
         firstTV.dataSource = self
-       
-        print(products)
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         do {
-            products = try context.fetch(Product.fetchRequest())
+            products = try context.fetch(Product1.fetchRequest())
             firstTV.reloadData()
-        } catch {
+        } catch
+        {
             print("Cannot fetch data!")
         }
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return products.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell : CustomCell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomCell
         let product = products[indexPath.row]
         
-        cell.nameLabel!.text = product.name
-        cell.cellImage!.image = UIImage(data: product.image!)
-        cell.expireDateLabel!.text = product.expiredate
-        if product.open == true {
+        cell.nameLabel!.text = product.name1
+        cell.cellImage!.image = UIImage(data: product.image1!)
+        cell.expireDateLabel!.text = product.expiredate1
+        if product.open1 == true
+        {
             cell.openLabel!.text = "已开封"
-        } else {
+        } else
+        {
             cell.openLabel!.text = "未开封"
         }
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
             let product = products[indexPath.row]
             context.delete(product)
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
-            do {
-                products = try context.fetch(Product.fetchRequest())
+            do
+            {
+                products = try context.fetch(Product1.fetchRequest())
                 firstTV.reloadData()
-            } catch {
+            } catch
+            {
                 print("Cannot fetch data!")
             }
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String?
+    {
         return "删除"
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         let product = products[indexPath.row]
         performSegue(withIdentifier:"productSegue1", sender: product)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextVC = segue.destination as! ProductViewController
-        nextVC.product = sender as? Product
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let nextVC = segue.destination as! Product1ViewController
+        nextVC.product = sender as? Product1
     }
     
 }
