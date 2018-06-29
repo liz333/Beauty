@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630EA5A620E60B980099E680 /* BrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630EA5A520E60B980099E680 /* BrandViewController.swift */; };
 		6399232820B7BC6D00169733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6399232720B7BC6D00169733 /* AppDelegate.swift */; };
 		6399232A20B7BC6D00169733 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6399232920B7BC6D00169733 /* ViewController.swift */; };
 		6399232D20B7BC6D00169733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6399232B20B7BC6D00169733 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		630EA5A520E60B980099E680 /* BrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandViewController.swift; sourceTree = "<group>"; };
 		6399232420B7BC6D00169733 /* Beauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6399232720B7BC6D00169733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6399232920B7BC6D00169733 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,11 +77,12 @@
 			isa = PBXGroup;
 			children = (
 				6399232720B7BC6D00169733 /* AppDelegate.swift */,
+				6399232B20B7BC6D00169733 /* Main.storyboard */,
 				6399232920B7BC6D00169733 /* ViewController.swift */,
 				63BED72320B8CCB90009DFDF /* Product1ViewController.swift */,
 				63BC579220DB799D001A0426 /* Product2ViewController.swift */,
 				63BC579420DB79B3001A0426 /* Product3ViewController.swift */,
-				6399232B20B7BC6D00169733 /* Main.storyboard */,
+				630EA5A520E60B980099E680 /* BrandViewController.swift */,
 				6399233E20B7C71A00169733 /* FirstViewController.swift */,
 				6399234020B7C73000169733 /* SecondViewController.swift */,
 				6399234220B7C74900169733 /* ThirdViewController.swift */,
@@ -175,6 +178,7 @@
 				63BED72420B8CCB90009DFDF /* Product1ViewController.swift in Sources */,
 				6399234120B7C73000169733 /* SecondViewController.swift in Sources */,
 				6399234320B7C74900169733 /* ThirdViewController.swift in Sources */,
+				630EA5A620E60B980099E680 /* BrandViewController.swift in Sources */,
 				63CA3E6F20BC9497004EF733 /* CustomCell.swift in Sources */,
 				6399233F20B7C71A00169733 /* FirstViewController.swift in Sources */,
 			);

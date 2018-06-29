@@ -798,7 +798,7 @@
         <!--产品品牌-->
         <scene sceneID="r4b-9m-4q5">
             <objects>
-                <viewController id="NWS-RI-i16" sceneMemberID="viewController">
+                <viewController id="NWS-RI-i16" customClass="BrandViewController" customModule="Beauty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bng-l3-0Vo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -830,6 +830,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="产品品牌" id="r8Y-qf-QlT"/>
                     <connections>
+                        <outlet property="brandTV" destination="I7O-Wc-JOw" id="JZd-FF-M4m"/>
                         <outlet property="searchDisplayController" destination="TOZ-ba-Nq6" id="eIx-Pm-rYm"/>
                     </connections>
                 </viewController>
@@ -844,7 +845,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1817" y="2235"/>
+            <point key="canvasLocation" x="2318" y="2252"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

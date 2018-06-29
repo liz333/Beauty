@@ -141,11 +141,17 @@ class Product1ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     
+    
+    
+    
     @IBAction func brandTextEdit(_ sender: UITextField) {
         performSegue(withIdentifier: "brandSegue", sender: brandText)
     }
-    
 
+    
+    
+    
+    
 
     @IBAction func categoryBeginEdit(_ sender: UITextField) {
         categoryText.inputView = categoryPicker
