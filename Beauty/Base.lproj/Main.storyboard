@@ -164,7 +164,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="categoryTextEdit:" destination="5Dn-dt-zPe" eventType="touchDown" id="1he-NB-sLk"/>
+                                    <action selector="categoryBeginEdit:" destination="5Dn-dt-zPe" eventType="editingDidBegin" id="nn7-Re-WpN"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSJ-tP-Dd4">
@@ -267,7 +267,6 @@
                         <outlet property="openSwitch" destination="eE0-dy-qZm" id="BOf-De-fJm"/>
                         <outlet property="produceDateText" destination="90J-aT-aKc" id="IPZ-5l-R8V"/>
                         <segue destination="NWS-RI-i16" kind="show" identifier="brandSegue" id="Taa-Oc-PqB"/>
-                        <segue destination="OXG-64-cKR" kind="show" identifier="categorySegue" id="Ckc-JH-45p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CkE-zm-Ilc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -427,7 +426,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="categoryTextEdit:" destination="128-ck-XMA" eventType="touchDown" id="GRN-sS-YVz"/>
+                                    <action selector="categoryBeginEdit:" destination="128-ck-XMA" eventType="editingDidBegin" id="jHn-f8-Vaq"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAg-Of-wJh">
@@ -688,7 +687,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="categoryTextEdit:" destination="h2O-KU-vVG" eventType="touchDown" id="EUy-0Y-AJe"/>
+                                    <action selector="categoryBeginEdit:" destination="h2O-KU-vVG" eventType="editingDidBegin" id="OlN-bT-4nx"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr7-o5-1hV">
@@ -846,34 +845,6 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1817" y="2235"/>
-        </scene>
-        <!--产品类型-->
-        <scene sceneID="6UW-QT-LdV">
-            <objects>
-                <viewController id="OXG-64-cKR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dpg-Ae-yCs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A7B-pL-GCA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Qib-zs-5ql" firstAttribute="bottom" secondItem="A7B-pL-GCA" secondAttribute="bottom" id="5sc-hD-VAm"/>
-                            <constraint firstItem="A7B-pL-GCA" firstAttribute="top" secondItem="Qib-zs-5ql" secondAttribute="top" id="RUu-g3-n3Y"/>
-                            <constraint firstItem="A7B-pL-GCA" firstAttribute="leading" secondItem="dpg-Ae-yCs" secondAttribute="leading" id="nHg-yV-e8n"/>
-                            <constraint firstItem="Qib-zs-5ql" firstAttribute="trailing" secondItem="A7B-pL-GCA" secondAttribute="trailing" id="rGq-vf-4Re"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Qib-zs-5ql"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="产品类型" id="nYo-2A-Gay"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u26-Dk-HG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2730" y="2235"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

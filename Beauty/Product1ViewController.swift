@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Product1ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class Product1ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet var imageButton: UIButton!
     @IBOutlet var imageView: UIImageView!
@@ -27,10 +27,14 @@ class Product1ViewController: UIViewController, UIImagePickerControllerDelegate,
     var product : Product1?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let dateFormatter = DateFormatter()
+    let categoryPicker = UIPickerView()
+    let categoryList = [" ", "护肤品"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        categoryPicker.dataSource = self
+        categoryPicker.delegate = self
     
         if product != nil {
             doneButton.isEnabled = false
@@ -141,11 +145,41 @@ class Product1ViewController: UIViewController, UIImagePickerControllerDelegate,
         performSegue(withIdentifier: "brandSegue", sender: brandText)
     }
     
-    
-    @IBAction func categoryTextEdit(_ sender: UITextField) {
-        performSegue(withIdentifier: "categorySegue", sender: categoryText)
+
+
+    @IBAction func categoryBeginEdit(_ sender: UITextField) {
+        categoryText.inputView = categoryPicker
+        
+        let navigationBar = UINavigationBar()
+        sender.inputAccessoryView = navigationBar
+        navigationBar.barStyle = UIBarStyle.default
+        navigationBar.sizeToFit()
+        let navigationItem = UINavigationItem()
+        navigationBar.setItems([navigationItem], animated: false)
+        let doneButton = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.plain, target: self, action:#selector(dismissCategoryPicker))
+        navigationItem.setRightBarButtonItems([doneButton], animated: false)
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryList.count
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryList[row]
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryText.text = categoryList[row]
+    }
+    
+    
+     @objc func dismissCategoryPicker() {
+    categoryText.endEditing(true)
+    }
     
     @IBAction func openSwitchChanged(_ sender: UISwitch) {
         if openSwitch.isOn != true {
